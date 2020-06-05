@@ -1,0 +1,32 @@
+
+<style>
+div.box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid white;
+  margin: 20;
+  background-color: white;
+  margin-top: 100px;
+}
+body {
+  width: all;
+  height: all;
+  background-color: gray;
+}</style>
+<body>
+<center>
+<div class="box">
+<h1>Hi!</h1>
+
+<p>
+    To reset your password, please visit
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">here</a>
+    This link will expire in {{ tokenLifetime|date('g') }} hour(s)..
+</p>
+
+<p>
+    Cheers!
+</p>
+</center>
+</div>
+</body>

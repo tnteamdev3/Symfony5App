@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<style>
+div.box {
+  width: 430px;
+  padding: 20px;
+  border: 5px solid white;
+  margin: 20;
+  background-color: white;
+  margin-top: 100px;
+}
+body {
+  width: all;
+  height: all;
+  background-color: gray;
+}
+.btn {
+  size: 100px;} /* Blue */
+.term{
+  text-align: left;
+}
+</style>
+
+<center>   
+<div class="box">
+<h1 style="color: blue">Sign Up</h1>
+ {{ form_start(registrationForm) }}
+<br>
+        {{ form_row(registrationForm.email) }} 
+        {{ form_row(registrationForm.password) }}
+     <div class="term">   {{ form_row(registrationForm.agreeTerms) }} </div>
+         <button class="btn btn-lg btn-primary" type="submit">
+       Register
+    </button>
+</div>
+    {{ form_end(registrationForm) }}
+ </center>
+
+
+ 
+{% endblock %}
+
+

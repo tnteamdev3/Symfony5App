@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Doc</title>
+<style type="text/css">
+div.mb-3{
+	color: blue;
+	sifont-size: 23px;
+}	
+div.bb{
+	color: black;
+	font-size: 20px;
+ 
+}	
+</style>
+</head>
+<body>
+<form method="post">
+	<h1> Dashboard</h1>
+	
+    {% if app.user %}
+        <div class="mb-3">
+           <div class="bb"> You are logged in </div> as 
+			{{ app.user.username }}, <br>
+            <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+   
+</form>
+
+</body>
+</html>
