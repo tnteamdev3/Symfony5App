@@ -26,4 +26,5 @@ class UserEntreprise extends User
         $this->roles = array("ROLE_USER");
 
     }
+   
 }

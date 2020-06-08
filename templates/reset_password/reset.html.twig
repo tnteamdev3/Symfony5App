@@ -5,7 +5,7 @@
 {% block body %}
 <style>
 div.box {
-  width: 360px;
+  width: 380px;
   padding: 20px;
   border: 5px solid white;
   background-color: white;
@@ -15,13 +15,16 @@ div.box {
 body {
   width: all;
   height: all;
-  background-color: gray;
+  background-color: rgb(105,105,105);
+}
+h1{
+color: blue;
 }
 </style>
 
 <center>
-<div clas="box">
-    <h1>Reset your password</h1>
+<div class="box">
+    <h1>Reset your password</h1><br>
 
     {{ form_start(resetForm) }}
         {{ form_row(resetForm.plainPassword) }}

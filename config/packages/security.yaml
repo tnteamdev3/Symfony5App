@@ -20,6 +20,11 @@ security:
             guard:
                 authenticators:
                     - App\Security\UserAuthentificatorAuthenticator
+
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+
             logout:
                 path: app_logout
                 target: app_login
@@ -40,7 +45,9 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_ADMIN]
 
     access_control:
-         - { path: ^/admin, roles: ROLE_SUPER_ADMIN }
+         - { path: ^/super/admin, roles: ROLE_SUPER_ADMIN }
+       #  - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/user/entreprise, roles: ROLE_USER }
          - { path: ^/profile, roles: ROLE_USER }
 
    

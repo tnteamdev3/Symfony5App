@@ -3,6 +3,32 @@
 {% block title %}Password Reset Email Sent{% endblock %}
 
 {% block body %}
+<style>
+div.box {
+  width: 360px;
+  padding: 20px;
+  border: 5px solid white;
+  background-color: white;
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
+body {
+  width: all;
+  height: all;
+  background-color: rgb(105,105,105);
+}
+p {
+  color: navy;
+  text-indent: 20px;
+  font-weight: bold;
+}
+</style>
+
+<center>
+    <div class="box">
     <p>An email has been sent that contains a link that you can click to reset your password. This link will expire in {{ tokenLifetime|date('g') }} hour(s).</p>
     <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+    </div>
+</center>
+
 {% endblock %}
