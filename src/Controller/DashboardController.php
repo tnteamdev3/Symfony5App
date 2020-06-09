@@ -12,7 +12,7 @@ class DashboardController extends AbstractController
     /**
      * @Route("/dashboard", name="app_dashboard")
      * @IsGranted("ROLE_USER")
-     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function index(): Response
     {
