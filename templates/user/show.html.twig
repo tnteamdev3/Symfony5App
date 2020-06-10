@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+   <style>
+div.box {
+  width: 780px;
+  padding: 20px;
+  border: 5px solid white;
+  background-color: white;
+  margin-top: 10px;
+  box-shadow: 8px 8px 12px #aaa;
+}
+body {
+  width: all;
+  height: all;
+  background-color: rgb(105,99,90);
+}
+</style>
+
+<div class="row">
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <h1 class="list-group-item list-group-item-action active">Show User</h1>
+      <a class="list-group-item list-group-item-action" href="{{ path('user_edit', {'id': user.id}) }}" role="tab">Edit User</a>
+      <a class="list-group-item list-group-item-action" href="{{path('app_dashboard') }}" role="tab">Back to dashboard</a>
+      <a class="list-group-item list-group-item-action" href="{{path('user_index') }}">Back to list</a>
+      <a class="list-group-item list-group-item-action" href="{{path('app_logout') }}" role="tab" >Logout</a>
+  
+    </div>
+  </div>
+<center><div class="box">
+    <h1>User</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr> 
+        </tbody>
+    </table>
+    {{ include('user/_delete_form.html.twig') }}<br>
+
+</div></center>
+
+{% endblock %}

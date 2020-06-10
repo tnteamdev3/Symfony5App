@@ -1,0 +1,24 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}SideBar{% endblock %}
+
+
+
+
+<div class="row">
+  <div class="col-4">
+
+
+    <div class="list-group" id="list-tab" role="tablist">
+    	<a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="{{path('app_dashboard') }}" role="tab" aria-controls="profile">dashboard</a>
+
+      <h1 class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" role="tab" aria-controls="home">User Index</h1>
+
+      <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="{{ path('user_new') }}" role="tab" aria-controls="home">Create New User</a>
+     
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="{{path('app_logout') }}" role="tab" aria-controls="messages">Logout</a>
+    </div>
+  </div>
+
+  {% if %}

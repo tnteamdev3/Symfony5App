@@ -46,8 +46,10 @@ security:
 
     access_control:
          - { path: ^/super/admin, roles: ROLE_SUPER_ADMIN }
-       #  - { path: ^/admin, roles: ROLE_ADMIN }
-         - { path: ^/user/entreprise, roles: ROLE_USER }
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/user, roles: ROLE_USER }
          - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/user, roles: ROLE_SUPER_ADMIN }
+         - { path: ^/dashboard, roles: ROLE_USER }
 
    

@@ -1,37 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Doc</title>
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+
+
+{% block body %}
 <style type="text/css">
 div.mb-3{
 	color: blue;
-	sifont-size: 23px;
+	font-size: 20px;
 }	
 div.bb{
 	color: black;
 	font-size: 20px;
 }	
-a{
-	text-align: right;
+div.box {
+  width: 780px;
+  padding: 20px;
+  border: 5px solid white;
+  background-color: white;
+  margin-top: 10px;
+  box-shadow: 8px 8px 12px #aaa;
 }
+body {
+  width: all;
+  height: all;
+  background-color: rgb(105,99,90);
+}
+
 </style>
-</head>
-<body>
-<ul>
-  <li> <a href="{{path('app_logout') }}"> Logout</a> </li>
-  <li> <a href="{{path('app_about') }}"> About</a> </li>
-</ul>
+</style>
+<div class="row">
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <h1 class="list-group-item list-group-item-action active">Dashboard</h1>
+      	{% if is_granted('ROLE_SUPER_ADMIN') %}  
+      <a class="list-group-item list-group-item-action" href="{{ path('user_index') }}" role="tab">User Index</a>
+      <a class="list-group-item list-group-item-action" href="{{ path('user_new') }}" role="tab" >Create New User</a>
+	{% endif %}
+      <a class="list-group-item list-group-item-action" href="{{path('app_logout') }}" role="tab" >Logout</a>
+  
+    </div>
+  </div>
+<div class="box">
 <form method="post">
-	<h1> Dashboard</h1>
-	
     {% if app.user %}
         <div class="mb-3">
            <div class="bb"> You are logged in </div> as 
 			{{ app.user.username }}, <br>
         </div>
-    {% endif %}
+       {% endif %}
 </form>
+</div>
+{% endblock %}
 
-</body>
-</html>

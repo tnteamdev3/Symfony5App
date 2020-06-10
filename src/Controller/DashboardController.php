@@ -12,7 +12,7 @@ class DashboardController extends AbstractController
     /**
      * @Route("/dashboard", name="app_dashboard")
      * @IsGranted("ROLE_USER")
-     * @IsGranted("ROLE_SUPER_ADMIN")
+     * 
      */
     public function index(): Response
     {
@@ -20,13 +20,5 @@ class DashboardController extends AbstractController
        return $this->render('doc/dashboard.html.twig');
     }
 
-     /**
-     * @Route("/about", name="app_about")
-     * 
-     */
-    public function about(): Response
-    {
-     
-       return $this->render('doc/about.html.twig');
-    }
+    
 }
