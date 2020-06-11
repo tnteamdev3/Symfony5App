@@ -20,7 +20,6 @@ class UserType extends AbstractType
             'entry_type'   => ChoiceType::class,
             'entry_options'  => [
                 'label' => false,
-            'placeholder' => 'Choose an option',
                 'choices' => [
                     'Admin Entreprise' => 'ROLE_ADMIN',
                     'User Entreprise' => 'ROLE_USER',
@@ -28,6 +27,7 @@ class UserType extends AbstractType
             ],
   ])
          ->add('password', PasswordType::class)
+         ->add('entreprises')
         ;
     }
 

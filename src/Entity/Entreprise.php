@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EntrepriseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,24 +20,65 @@ class Entreprise
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $entreprise_id;
+    private $name_entreprise;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="entreprises")
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEntrepriseId(): ?int
+    public function getNameEntreprise(): ?string
     {
-        return $this->entreprise_id;
+        return $this->name_entreprise;
     }
 
-    public function setEntrepriseId(int $entreprise_id): self
+    public function setNameEntreprise(string $name_entreprise): self
     {
-        $this->entreprise_id = $entreprise_id;
+        $this->name_entreprise = $name_entreprise;
 
         return $this;
     }
-}
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->user->contains($user)) {
+            $this->user->removeElement($user);
+        }
+
+        return $this;
+    }
+    public function __toString(){
+                                
+        return $this->name_entreprise;
+                                
+          }
+    }

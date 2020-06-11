@@ -3,37 +3,49 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-<style type="text/css">
-div.box {
-  width: 780px;
-  padding: 20px;
-  border: 5px solid white;
-  background-color: white;
-  margin-top: 10px;
-  box-shadow: 8px 8px 12px #aaa;
-}
-body {
-  width: all;
-  height: all;
-  background-color: rgb(105,99,90);
-}
 
-</style>
+  <!-- Vertical navbar -->
+  <div class="vertical-nav bg-dark active" id="sidebar">
+      <div class="py-4 px-3 mb-4 bg-dark">
+          <div class="media-body">
+            <h4 class="font-weight-white text-muted mb-0">Edit User</h4>
+          </div>
+      </div>
+      <ul class="nav flex-column bg-dark mb-0">
+        <li class="nav-item">
+            <a href="{{ path('app_dashboard') }}" class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-home mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                    Dashboard
+              </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('user_new') }}"  class="nav-link text-light font-italic">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  Create New User
+              </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('user_index') }}"  class="nav-link text-light font-italic">
+                  <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                 User Index
+              </a>
+        </li>
+      </ul>
+      <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">deconnexion</p>
 
-<div class="row">
-  <div class="col-4">
-    <div class="list-group" id="list-tab" role="tablist">
-      <h1 class="list-group-item list-group-item-action active">Edit User</h1>
-      <a class="list-group-item list-group-item-action" href="{{ path('user_new') }}" role="tab">Create New User</a>
-      <a class="list-group-item list-group-item-action" href="{{path('app_dashboard') }}" role="tab">Back to dashboard</a>
-      <a class="list-group-item list-group-item-action" href="{{path('user_index') }}">back to list</a>
-      <a class="list-group-item list-group-item-action" href="{{path('app_logout') }}" role="tab" >Logout</a>
-  
-    </div>
+        <ul class="nav flex-column bg-dark mb-0">
+          <li class="nav-item">
+              <a href="{{path('app_logout') }}"  class="nav-link text-light font-italic">
+                  <i class="fa fa-sign-out text-primary mr-3 fa-fw" aria-hidden="true"></i>
+                    Logout
+                </a>
+          </li>
+        </ul>
   </div>
+<!-- End vertical navbar -->
 
+  <!-- Demo content -->
 <center><div class="box">
-
 {{ include('user/_form.html.twig', {'button_label': 'Update'}) }} <br>
 {{ include('user/_delete_form.html.twig') }}<br>
     

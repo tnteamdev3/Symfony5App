@@ -19,6 +19,16 @@ class DashboardController extends AbstractController
     	//$this->denyAccessUnlessGranted('ROLE_USER');
        return $this->render('doc/dashboard.html.twig');
     }
+     /**
+     * @Route("/sidebar", name="app_sidebar")
+     * @IsGranted("ROLE_USER")
+     * 
+     */
+    public function sidebar(): Response
+    {
+       return $this->render('user/sideBar.html.twig');
+    }
+
 
     
 }

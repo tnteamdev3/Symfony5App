@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Entreprise{% endblock %}
 
 {% block body %}
 
@@ -19,21 +19,21 @@
               </a>
         </li>
         <li class="nav-item">
-            <a href="{{ path('user_new') }}"  class="nav-link text-light font-italic">
+            <a href="{{ path('entreprise_new') }}"  class="nav-link text-light font-italic">
                   <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
-                  Create New User
+                  Create New Entreprise
               </a>
         </li>
         <li class="nav-item">
-            <a href="{{ path('user_index') }}"  class="nav-link text-light font-italic">
+            <a href="{{ path('entreprise_index') }}"  class="nav-link text-light font-italic">
                   <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                 User Index
+                 Entreprise Index
               </a>
         </li>
           <li class="nav-item">
-            <a href="{{ path('user_edit', {'id': user.id}) }}"  class="nav-link text-light font-italic">
+            <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}"  class="nav-link text-light font-italic">
                   <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-                 Edit User
+                 Edit Entreprise
               </a>
         </li>
       </ul>
@@ -48,30 +48,35 @@
           </li>
         </ul>
   </div>
-<!-- End vertical navbar -->
 
-  <!-- Demo content -->
+
+
+
 
 <center><div class="box">
-    <h1>User</h1>
+    <h1>Entreprise</h1>
+
     <table class="table">
         <tbody>
             <tr>
-                <th scope="row">Id</th>
-                <td>{{ user.id }}</td>
+                <th>Id</th>
+                <td>{{ entreprise.id }}</td>
             </tr>
             <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
+                <th>Name_entreprise</th>
+                <td>{{ entreprise.nameEntreprise }}</td>
             </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr> 
+             <tr>
+                <th>user</th>
+            <td>{% for u in entreprise.user %}
+            {{ u }}<br>
+              {% endfor %}</td>
+
+               </tr>
         </tbody>
     </table>
-    {{ include('user/_delete_form.html.twig') }}<br>
 
-</div></center>
 
+    {{ include('entreprise/_delete_form.html.twig') }}
+    </div></center>
 {% endblock %}

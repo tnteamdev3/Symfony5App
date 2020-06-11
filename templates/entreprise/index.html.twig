@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
-
-
+{% block title %}Entreprise index{% endblock %}
 
 {% block body %}
 
@@ -10,7 +8,7 @@
   <div class="vertical-nav bg-dark active" id="sidebar">
       <div class="py-4 px-3 mb-4 bg-dark">
           <div class="media-body">
-            <h4 class="font-weight-white text-muted mb-0">User Index</h4>
+            <h4 class="font-weight-white text-muted mb-0">Entreprise Index</h4>
           </div>
       </div>
       <ul class="nav flex-column bg-dark mb-0">
@@ -21,9 +19,9 @@
               </a>
         </li>
         <li class="nav-item">
-            <a href="{{ path('user_new') }}"  class="nav-link text-light font-italic">
+            <a href="{{ path('entreprise_new') }}"  class="nav-link text-light font-italic">
                     <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
-                  Create New User
+                  Create New Entreprise
               </a>
         </li>
       </ul>
@@ -38,41 +36,39 @@
           </li>
         </ul>
   </div>
-<!-- End vertical navbar -->
-
-  <!-- Demo content -->
 <center><div class="box">
+
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="row">Id</th>
-                <th>Email</th>
-                <th>Roles</th>
+                <th>Id</th>
+                <th>Name_entreprise</th>
                 <th>Actions</th>
-                <th>Entreprise</th>
+                <th>Users</th>
 
             </tr>
         </thead>
         <tbody>
-        {% for user in users %}
+        {% for entreprise in entreprises %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ entreprise.id }}</td>
+                <td>{{ entreprise.nameEntreprise }}</td>
                 <td>
-               <a href="{{ path('user_show', {'id': user.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i>show</a>
-              <a href="{{ path('user_edit', {'id': user.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>edit</a>
+                    <a href="{{ path('entreprise_show', {'id': entreprise.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i>show</a>
+                    <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>edit</a>
                 </td>
-            <td>{% for u in user.entreprises %}
+            <td>{% for u in entreprise.user %}
             {{ u }}<br>
-            {% endfor %}</td>
-             </tr>
+              {% endfor %}</td>
+            </tr>
         {% else %}
             <tr>
-                <td colspan="5">No records found</td>
+                <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-</div></center>
+
+</div>
+</center>
 {% endblock %}

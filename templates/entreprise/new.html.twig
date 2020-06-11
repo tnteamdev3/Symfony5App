@@ -1,16 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New User{% endblock %}
-
-
+{% block title %}New Entreprise{% endblock %}
 
 {% block body %}
-
-  <!-- Vertical navbar -->
+ <!-- Vertical navbar -->
   <div class="vertical-nav bg-dark active" id="sidebar">
       <div class="py-4 px-3 mb-4 bg-dark">
           <div class="media-body">
-            <h4 class="font-weight-white text-muted mb-0">Create New User</h4>
+            <h4 class="font-weight-white text-muted mb-0">Create New Entreprise</h4>
           </div>
       </div>
       <ul class="nav flex-column bg-dark mb-0">
@@ -21,9 +18,9 @@
               </a>
         </li>
         <li class="nav-item">
-            <a href="{{ path('user_index') }}"  class="nav-link text-light font-italic">
+            <a href="{{ path('entreprise_index') }}"  class="nav-link text-light font-italic">
                   <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                  User Index
+                  Entreprise Index
               </a>
         </li>
       </ul>
@@ -39,13 +36,12 @@
         </ul>
   </div>
 <!-- End vertical navbar -->
+<center><div class="box">
 
+    <h1>Create new Entreprise</h1>
 
-  <!-- Demo content -->
-<center>
-  <div class="box">
-        {{ include('user/_form.html.twig') }}
+    {{ include('entreprise/_form.html.twig') }}
 
-  </div>
+</div>
 </center>
 {% endblock %}
