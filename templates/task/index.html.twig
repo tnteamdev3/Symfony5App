@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task index{% endblock %}
+
+{% block body %}
+<!-- Vertical navbar -->
+  <div class="vertical-nav bg-dark active" id="sidebar">
+      <div class="py-4 px-3 mb-4 bg-dark">
+          <div class="media-body">
+            <h4 class="font-weight-white text-muted mb-0">Task Index</h4>
+          </div>
+      </div>
+      <ul class="nav flex-column bg-dark mb-0">
+        <li class="nav-item">
+            <a href="{{ path('app_dashboard') }}" class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-home mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                    Dashboard
+              </a>
+        </li>
+         <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Task</p>
+        <li class="nav-item">
+            <a href="{{ path('task_new') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  Create New Task
+              </a>
+        </li>
+        
+      <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Deconnexion</p>
+          <li class="nav-item">
+              <a href="{{path('app_logout') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-sign-out text-primary mr-3 fa-fw" aria-hidden="true"></i>
+                    Logout
+                </a>
+          </li>
+        </ul>
+  </div>
+<!-- End vertical navbar -->
+
+<center><div class="box">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Numero_task</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.numeroTask }}</td>
+                <td>{{ task.description }}</td>
+                <td>
+                    <a href="{{ path('task_show', {'id': task.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i>show</a>
+                    <a href="{{ path('task_edit', {'id': task.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</center>
+{% endblock %}

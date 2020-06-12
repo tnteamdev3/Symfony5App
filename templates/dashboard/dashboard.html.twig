@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+
+
+{% block body %}
+
+	<!-- Vertical navbar -->
+	<div class="vertical-nav bg-dark active" id="sidebar">
+  		<div class="py-4 px-3 mb-4 bg-dark">
+      		<div class="media-body">
+        		<h4 class="font-weight-white text-muted mb-0">Dashboard</h4>
+      		</div>
+  		</div>
+            	{% if is_granted('ROLE_SUPER_ADMIN') %}  
+  		<ul class="nav flex-column bg-dark mb-0">
+           <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Entreprises</p>
+        <li class="nav-item">
+            <a href="{{ path('entreprise_index') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-cubes mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  Entreprise Index
+              </a>
+          
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('entreprise_new') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  New Entreprise
+              </a>
+        </li>
+           <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Users</p>
+        <li class="nav-item">
+            <a href="{{ path('user_index') }}" class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                    User Index
+              </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('user_new') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  New User
+              </a>
+        </li>
+  		
+     {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}  
+           <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Projects</p>
+     <li class="nav-item">
+            <a href="{{ path('project_index') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  Project Index
+              </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('project_new') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  New Project
+              </a>
+        </li>
+      <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Tasks</p>
+     <li class="nav-item">
+            <a href="{{ path('task_index') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  Task Index
+              </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('task_new') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  New Task
+              </a>
+        </li>
+
+
+             {% endif %}
+
+      <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Profile</p>
+
+          <li class="nav-item">
+              <a href="{{ path('app_forgot_password_request') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-pencil-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                    Change Password
+                </a>
+          </li>
+  		<p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">deconnexion</p>
+    			<li class="nav-item">
+      				<a href="{{path('app_logout') }}"  class="nav-link text-light font-italic bg-dark">
+                	<i class="fa fa-sign-out mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                		Logout
+            		</a>
+    			</li>
+  			</ul>
+	</div>
+<!-- End vertical navbar -->
+
+  <!-- Demo content -->
+  <center>
+  <div class="box">
+	<form method="post">
+	    {% if app.user %}
+	        <div class="mb-3">
+	           <div class="bb"> You are logged in </div> as 
+				{{ app.user.username }}, <br>
+	        </div>
+	    {% endif %}
+	</form>
+  </div>
+
+ 
+    
+  </center>
+<!-- End content -->
+
+{% endblock %}
+
