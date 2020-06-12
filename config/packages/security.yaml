@@ -51,5 +51,6 @@ security:
          - { path: ^/profile, roles: ROLE_USER }
          - { path: ^/user, roles: ROLE_SUPER_ADMIN }
          - { path: ^/dashboard, roles: ROLE_USER }
+         - { path: ^/project, roles: ROLE_ADMIN }
 
    

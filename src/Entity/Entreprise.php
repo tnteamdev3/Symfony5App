@@ -29,6 +29,7 @@ class Entreprise
      */
     private $user;
 
+    
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -81,4 +82,6 @@ class Entreprise
         return $this->name_entreprise;
                                 
           }
+
+
     }

@@ -46,7 +46,7 @@ background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, F
 }
 
 .text-uppercase {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1px;
 }
 
 .text-gray {
@@ -57,11 +57,14 @@ background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, F
   min-width: 17rem;
   width: 17rem;
   height: 100vh;
-  position: fixed;
   top: 0;
   left: 0;
+  position: absolute;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
+}
+
+
 }
     </style>
         {% endblock %}
