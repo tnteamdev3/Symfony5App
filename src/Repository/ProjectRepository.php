@@ -18,7 +18,14 @@ class ProjectRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Project::class);
     }
-
+    public function projectsNumber()
+    {
+    return $this->createQueryBuilder('u')
+            ->select('count(u)')
+            ->getQuery()
+            ->getSingleResult();
+        ;
+    }
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */

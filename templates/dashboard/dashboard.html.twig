@@ -97,23 +97,51 @@
 
   <!-- Demo content -->
   <center>
+
   <div class="box">
 	<form method="post">
 	    {% if app.user %}
 	        <div class="mb-3">
-            {% if is_granted('ROLE_SUPER_ADMIN') %}  
-	           <div class="bb"><b> Hello Superadmin </b><br>
-              {% endif %}
+        
              You are logged in </div> as 
 				{{ app.user.username }}, <br>
 	        </div>
 	    {% endif %}
 
 	</form>
+      {% if is_granted('ROLE_SUPER_ADMIN') %}  
+             <div class="bb"><b> Hello Superadmin </b><br>
+            
+      <div class="row">
+            <div class="quick-stats-invoices col-xs-12 col-md-6 col-sm-6 col-lg-3">
+            <div class="top_stats_wrapper font-weight-bold text-primary">
+             <p class="text-uppercase"><i class="fa fa-users" aria-hidden="true"></i>Users<span class="pull-right">{{ usersNumber }} </span>
+            </p>
+               </div>
+         </div>
+            <div class="quick-stats-invoices col-xs-12 col-md-6 col-sm-6 col-lg-3">
+            <div class="top_stats_wrapper font-weight-bold text-primary">
+             <p class="text-uppercase"><i class="hidden-sm fa fa-cubes"></i> Entreprises<span class="pull-right">{{ entreprisesNumber }} </span>
+               </p>
+         
+               </div>
+         </div>
+            <div class="quick-stats-invoices col-xs-12 col-md-6 col-sm-6 col-lg-3">
+            <div class="top_stats_wrapper font-weight-bold text-primary">
+             <p class="text-uppercase"><i class="hidden-sm fa fa-cubes"></i>Projects<span class="pull-right">{{ projectsNumber }} </span>
+               </p>
+         
+            </div>
+         </div>
+            <div class="quick-stats-invoices col-xs-12 col-md-6 col-sm-6 col-lg-3">
+            <div class="top_stats_wrapper font-weight-bold text-primary">
+             <p class="text-uppercase"><i class="hidden-sm fa fa-cubes"></i>Tasks<span class="pull-right">{{ tasksNumber }} </span>
+               </p>
+          </div>
+         </div>
+         </div>
   </div>
-
- 
-    
+      {% endif %}
   </center>
 <!-- End content -->
 

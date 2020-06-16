@@ -18,6 +18,14 @@ class TaskRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Task::class);
     }
+        public function tasksNumber()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('count(u)')
+            ->getQuery()
+            ->getSingleResult();
+        ;
+    }
 
     // /**
     //  * @return Task[] Returns an array of Task objects
