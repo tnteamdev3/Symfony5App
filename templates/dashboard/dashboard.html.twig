@@ -13,8 +13,9 @@
         		<h4 class="font-weight-white text-muted mb-0">Dashboard</h4>
       		</div>
   		</div>
-            	{% if is_granted('ROLE_SUPER_ADMIN') %}  
   		<ul class="nav flex-column bg-dark mb-0">
+                      {% if is_granted('ROLE_SUPER_ADMIN') %}  
+
            <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Entreprises</p>
         <li class="nav-item">
             <a href="{{ path('entreprise_index') }}"  class="nav-link text-light font-italic bg-dark">
@@ -57,7 +58,8 @@
                   <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
                   New Project
               </a>
-        </li>
+        </li>{% endif %}
+                    {% if is_granted('ROLE_USER') %}  
       <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Tasks</p>
      <li class="nav-item">
             <a href="{{ path('task_index') }}"  class="nav-link text-light font-italic bg-dark">
@@ -71,8 +73,7 @@
                   New Task
               </a>
         </li>
-
-
+          
              {% endif %}
 
       <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Profile</p>
@@ -100,10 +101,14 @@
 	<form method="post">
 	    {% if app.user %}
 	        <div class="mb-3">
-	           <div class="bb"> You are logged in </div> as 
+            {% if is_granted('ROLE_SUPER_ADMIN') %}  
+	           <div class="bb"><b> Hello Superadmin </b><br>
+              {% endif %}
+             You are logged in </div> as 
 				{{ app.user.username }}, <br>
 	        </div>
 	    {% endif %}
+
 	</form>
   </div>
 

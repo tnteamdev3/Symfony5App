@@ -43,7 +43,8 @@
                 <th>Id</th>
                 <th>Numero_task</th>
                 <th>Description</th>
-                <th>actions</th>
+                <th>Actions</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -56,6 +57,7 @@
                     <a href="{{ path('task_show', {'id': task.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i>show</a>
                     <a href="{{ path('task_edit', {'id': task.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>edit</a>
                 </td>
+                <td> {{ task.status }}</td>
             </tr>
         {% else %}
             <tr>

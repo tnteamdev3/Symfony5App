@@ -33,6 +33,14 @@ class Task
      */
     private $projet;
 
+/**
+ * @var ENUM
+ *
+ * @ORM\Column(name="status", type="string", columnDefinition="ENUM('Not Started Yet', 'In Process', 'Done')")
+ */
+  private $status;
+
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -77,5 +85,18 @@ class Task
                
         return (string)$this->numero_task;
                                                
-                                                   }
+      }
+      
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+  
 }
