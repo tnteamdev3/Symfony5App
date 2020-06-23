@@ -60,7 +60,7 @@ class Project
         return $this;
     }
 
-    /**
+       /**
      * @return Collection|User[]
      */
     public function getUser(): Collection
@@ -68,7 +68,7 @@ class Project
         return $this->user;
     }
 
-    public function addUser(user $user): self
+    public function addUser(User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
@@ -77,7 +77,7 @@ class Project
         return $this;
     }
 
-    public function removeUser(user $user): self
+    public function removeUser(User $user): self
     {
         if ($this->user->contains($user)) {
             $this->user->removeElement($user);
