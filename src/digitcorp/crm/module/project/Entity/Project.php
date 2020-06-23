@@ -68,7 +68,7 @@ class Project
         return $this->user;
     }
 
-    public function addUser(User $user): self
+    public function addUser(User $user): User
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
@@ -77,7 +77,7 @@ class Project
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function removeUser(User $user): User
     {
         if ($this->user->contains($user)) {
             $this->user->removeElement($user);
@@ -94,7 +94,7 @@ class Project
         return $this->tasks;
     }
 
-    public function addTask(Task $task): self
+    public function addTask(Task $task): Task
     {
         if (!$this->tasks->contains($task)) {
             $this->tasks[] = $task;
@@ -104,7 +104,7 @@ class Project
         return $this;
     }
 
-    public function removeTask(Task $task): self
+    public function removeTask(Task $task): Task
     {
         if ($this->tasks->contains($task)) {
             $this->tasks->removeElement($task);
