@@ -39,7 +39,6 @@ class Project
     public function __construct()
     {
         $this->user = new ArrayCollection();
-        $this->task = new ArrayCollection();
         $this->tasks = new ArrayCollection();
     }
 
