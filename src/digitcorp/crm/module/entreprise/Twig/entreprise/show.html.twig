@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise{% endblock %}
+
+{% block body %}
+
+  <!-- Vertical navbar -->
+  <div class="vertical-nav bg-dark active" id="sidebar">
+      <div class="py-4 px-3 mb-4 bg-dark">
+          <div class="media-body">
+            <h4 class="font-weight-white text-muted mb-0">Show User</h4>
+          </div>
+      </div>
+      <ul class="nav flex-column bg-dark mb-0">
+        <li class="nav-item">
+            <a href="{{ path('app_dashboard') }}" class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-home mr-3 text-primary fa-fw"></i>
+                    Dashboard
+              </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('entreprise_new') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-plus-square-o mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                  Create New Entreprise
+              </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('entreprise_index') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                 Entreprise Index
+              </a>
+        </li>
+          <li class="nav-item">
+            <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}" class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                 Edit Entreprise
+              </a>
+        </li>
+      </ul>
+      <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">deconnexion</p>
+
+        <ul class="nav flex-column bg-dark mb-0">
+          <li class="nav-item">
+              <a href="{{path('app_logout') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-sign-out mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                    Logout
+                </a>
+          </li>
+        </ul>
+  </div>
+
+<center><div class="box">
+    <h1>Entreprise</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entreprise.id }}</td>
+            </tr>
+            <tr>
+                <th>Name_entreprise</th>
+                <td>{{ entreprise.nameEntreprise }}</td>
+            </tr>
+             <tr>
+                <th>user</th>
+            <td>{% for u in entreprise.user %}
+            {{ u }}<br>
+              {% endfor %}</td>
+
+               </tr>
+        </tbody>
+    </table>
+
+
+    {{ include('entreprise/Twig/entreprise/_delete_form.html.twig') }}
+    </div></center>
+{% endblock %}
