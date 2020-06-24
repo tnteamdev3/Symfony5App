@@ -67,10 +67,10 @@ class Project
         return $this->user;
     }
 
-    public function addUsers(App\digitcorp\crm\module\user\Entity\User $user): self
+    public function addUser(App\digitcorp\crm\module\user\Entity\User $user): self
     {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
         }
 
         return $this;
