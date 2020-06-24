@@ -44,7 +44,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                            private $entreprises;
             
                                            /**
-                                            * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\project\Entity\Project::class, mappedBy="user")
+                                            * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\project\Entity\Project::class, mappedBy="users")
                                             */
                                            private $projects;
                            
