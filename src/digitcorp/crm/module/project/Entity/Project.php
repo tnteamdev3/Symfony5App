@@ -29,7 +29,10 @@ class Project
      */
     private $user;
 
-
+    /**
+     * @ORM\OneToMany(targetEntity=App\digitcorp\crm\module\task\Entity\Task::class, mappedBy="projet")
+     */
+    private $tasks;
 
    
 
@@ -82,7 +85,36 @@ class Project
         return $this;
     }
 
-    
+    /**
+     * @return Collection|Task[]
+     */
+    public function getTasks(): Collection
+    {
+        return $this->tasks;
+    }
+
+    public function addTask(Task $tasks): self
+    {
+        if (!$this->tasks->contains($tasks)) {
+            $this->tasks[] = $tasks;
+            $tasks->setProjet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTask(Task $tasks): self
+    {
+        if ($this->tasks->contains($tasks)) {
+            $this->tasks->removeElement($tasks);
+            // set the owning side to null (unless already changed)
+            if ($tasks->getProjet() === $this) {
+                $tasks->setProjet(null);
+            }
+        }
+
+        return $this;
+    }
 
           public function __toString(){
                

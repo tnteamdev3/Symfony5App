@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New task{% endblock %}
+
+{% block body %}
+ <!-- Vertical navbar -->
+  <div class="vertical-nav bg-dark active" id="sidebar">
+      <div class="py-4 px-3 mb-4 bg-dark">
+          <div class="media-body">
+            <h4 class="font-weight-white text-muted mb-0">Create New task</h4>
+          </div>
+      </div>
+      <ul class="nav flex-column bg-dark mb-0">
+        <li class="nav-item">
+            <a href="{{ path('app_dashboard') }}" class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-home text-primary mr-3 fa-fw" aria-hidden="true"></i>
+                    Dashboard
+              </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('task_index') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                  task Index
+              </a>
+        </li>
+      </ul>
+      <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">deconnexion</p>
+
+        <ul class="nav flex-column bg-dark mb-0">
+          <li class="nav-item">
+              <a href="{{path('app_logout') }}"  class="nav-link text-light font-italic bg-dark">
+                  <i class="fa fa-sign-out mr-3 text-primary fa-fw" aria-hidden="true"></i>
+                    Logout
+                </a>
+          </li>
+        </ul>
+  </div>
+<!-- End vertical navbar -->
+<center><div class="box">
+
+    <h1>Create new task</h1>
+
+    {{ include('task/Twig/_form.html.twig') }}
+
+</div>
+</center>
+{% endblock %}

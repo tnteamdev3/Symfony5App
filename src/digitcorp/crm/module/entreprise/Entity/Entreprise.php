@@ -55,15 +55,15 @@ class Entreprise
     /**
      * @return Collection|User[]
      */
-    public function getUsers(): Collection
+    public function getUser(): Collection
     {
-        return $this->users;
+        return $this->user;
     }
 
-    public function addUser(User $user): self
+    public function addUsers(User $user): self
     {
-        if (!$this->users->contains($users)) {
-            $this->users[] = $users;
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
         }
 
         return $this;
@@ -71,8 +71,8 @@ class Entreprise
 
     public function removeUser(User $user): self
     {
-        if ($this->users->contains($users)) {
-            $this->users->removeElement($users);
+        if ($this->user->contains($user)) {
+            $this->user->removeElement($user);
         }
 
         return $this;
