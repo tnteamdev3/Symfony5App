@@ -27,7 +27,7 @@ class Project
    /**
      * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\user\Entity\User::class, inversedBy="projects")
      */
-    private $user;
+    public $user;
 
     /**
      * @ORM\OneToMany(targetEntity=App\digitcorp\crm\module\task\Entity\Task::class, mappedBy="projet")
