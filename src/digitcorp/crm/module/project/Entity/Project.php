@@ -67,12 +67,12 @@ class Project
         return $this->user;
     }
 
-    public function addUser(App\digitcorp\crm\module\user\Entity\User $user): self
+    public function addUser(User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
         }
-
+         
         return $this;
     }
 
@@ -85,7 +85,7 @@ class Project
         return $this;
     }
 
-    /**
+        /**
      * @return Collection|Task[]
      */
     public function getTasks(): Collection
@@ -93,23 +93,23 @@ class Project
         return $this->tasks;
     }
 
-    public function addTask(Task $tasks): self
+    public function addTask(Task $task): self
     {
-        if (!$this->tasks->contains($tasks)) {
-            $this->tasks[] = $tasks;
-            $tasks->setProjet($this);
+        if (!$this->tasks->contains($task)) {
+            $this->tasks[] = $task;
+            $task->setProjet($this);
         }
 
         return $this;
     }
 
-    public function removeTask(Task $tasks): self
+    public function removeTask(Task $task): self
     {
-        if ($this->tasks->contains($tasks)) {
-            $this->tasks->removeElement($tasks);
+        if ($this->tasks->contains($task)) {
+            $this->tasks->removeElement($task);
             // set the owning side to null (unless already changed)
-            if ($tasks->getProjet() === $this) {
-                $tasks->setProjet(null);
+            if ($task->getProjet() === $this) {
+                $task->setProjet(null);
             }
         }
 
