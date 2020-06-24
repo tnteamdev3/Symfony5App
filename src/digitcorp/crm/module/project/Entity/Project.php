@@ -39,7 +39,6 @@ class Project
     public function __construct()
     {
         $this->user = new ArrayCollection();
-        $this->task = new ArrayCollection();
         $this->tasks = new ArrayCollection();
     }
 
@@ -68,7 +67,7 @@ class Project
         return $this->user;
     }
 
-    public function addUser(User $user): User
+    public function addUser(User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
@@ -77,7 +76,7 @@ class Project
         return $this;
     }
 
-    public function removeUser(User $user): User
+    public function removeUser(User $user): self
     {
         if ($this->user->contains($user)) {
             $this->user->removeElement($user);
@@ -94,7 +93,7 @@ class Project
         return $this->tasks;
     }
 
-    public function addTask(Task $task): Task
+    public function addTask(Task $task): self
     {
         if (!$this->tasks->contains($task)) {
             $this->tasks[] = $task;
@@ -104,7 +103,7 @@ class Project
         return $this;
     }
 
-    public function removeTask(Task $task): Task
+    public function removeTask(Task $task): self
     {
         if ($this->tasks->contains($task)) {
             $this->tasks->removeElement($task);

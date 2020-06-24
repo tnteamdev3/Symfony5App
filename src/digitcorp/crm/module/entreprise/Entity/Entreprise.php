@@ -60,7 +60,7 @@ class Entreprise
         return $this->user;
     }
 
-    public function addUser(User $user): User
+    public function addUser(User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
@@ -69,7 +69,7 @@ class Entreprise
         return $this;
     }
 
-    public function removeUser(User $user): User
+    public function removeUser(User $user): self
     {
         if ($this->user->contains($user)) {
             $this->user->removeElement($user);
