@@ -36,12 +36,10 @@
         </ul>
   </div>
 <!-- End vertical navbar -->
-<center><div class="box">
+<center>
+  <div class="box">
+        {{ include('task/Twig/_form.html.twig') }}
 
-    <h1>Create new task</h1>
-
-    {{ include('task/Twig/_form.html.twig') }}
-
-</div>
+  </div>
 </center>
 {% endblock %}
