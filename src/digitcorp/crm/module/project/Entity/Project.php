@@ -24,7 +24,7 @@ class Project
      */
     private $name_project;
 
-    /**
+   /**
      * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\user\Entity\User::class, inversedBy="projects")
      */
     private $user;
@@ -67,7 +67,7 @@ class Project
         return $this->user;
     }
 
-    public function addUser(User $user): self
+    public function addUsers(User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
@@ -93,23 +93,23 @@ class Project
         return $this->tasks;
     }
 
-    public function addTask(Task $task): self
+    public function addTask(Task $tasks): self
     {
-        if (!$this->tasks->contains($task)) {
-            $this->tasks[] = $task;
-            $task->setProjet($this);
+        if (!$this->tasks->contains($tasks)) {
+            $this->tasks[] = $tasks;
+            $tasks->setProjet($this);
         }
 
         return $this;
     }
 
-    public function removeTask(Task $task): self
+    public function removeTask(Task $tasks): self
     {
-        if ($this->tasks->contains($task)) {
-            $this->tasks->removeElement($task);
+        if ($this->tasks->contains($tasks)) {
+            $this->tasks->removeElement($tasks);
             // set the owning side to null (unless already changed)
-            if ($task->getProjet() === $this) {
-                $task->setProjet(null);
+            if ($tasks->getProjet() === $this) {
+                $tasks->setProjet(null);
             }
         }
 
