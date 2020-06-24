@@ -39,12 +39,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                            private $password;
                               
                                            /**
-                                            * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\entreprise\Entity\Entreprise::class, mappedBy="user")
+                                            * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\entreprise\Entity\Entreprise::class, mappedBy="users")
                                             */
                                            private $entreprises;
             
                                            /**
-                                            * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\project\Entity\Project::class, mappedBy="user")
+                                            * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\project\Entity\Project::class, mappedBy="users")
                                             */
                                            private $projects;
                            

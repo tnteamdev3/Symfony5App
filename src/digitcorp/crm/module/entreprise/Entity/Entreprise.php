@@ -60,7 +60,7 @@ class Entreprise
         return $this->users;
     }
 
-    public function addUsers(User $user): self
+    public function addUser(User $users): self
     {
         if (!$this->users->contains($users)) {
             $this->users[] = $users;
