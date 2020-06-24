@@ -27,7 +27,7 @@ class Entreprise
     /**
      * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\user\Entity\User::class, inversedBy="entreprises")
      */
-    private $users;
+    private $user;
 
     
     public function __construct()
@@ -60,7 +60,7 @@ class Entreprise
         return $this->users;
     }
 
-    public function addUsers(User $users): self
+    public function addUser(User $user): self
     {
         if (!$this->users->contains($users)) {
             $this->users[] = $users;
