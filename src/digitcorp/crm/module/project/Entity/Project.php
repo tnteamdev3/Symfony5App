@@ -30,17 +30,17 @@ class Project
     public $user;
 
     /**
-     * @ORM\OneToMany(targetEntity=App\digitcorp\crm\module\task\Entity\Task::class, mappedBy="projet")
+     * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="projet")
      */
     private $tasks;
 
-   
-
     public function __construct()
     {
-        $this->user = new ArrayCollection();
         $this->tasks = new ArrayCollection();
+        $this->user = new ArrayCollection();
+
     }
+
 
     public function getId(): ?int
     {
@@ -67,7 +67,7 @@ class Project
         return $this->user;
     }
 
-    public function addUser(User $user): ?self
+    public function addUser(User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
@@ -76,7 +76,7 @@ class Project
         return $this;
     }
 
-    public function removeUser(User $user): ?self
+    public function removeUser(User $user): self
     {
         if ($this->user->contains($user)) {
             $this->user->removeElement($user);
@@ -85,36 +85,34 @@ class Project
         return $this;
     }
 
-    /**
+
+/**
      * @return Collection|Task[]
-     */
+ */
     public function getTasks(): Collection
     {
-        return $this->tasks;
+           return $this->tasks;
     }
-
-    public function addTask(Task $tasks): self
-    {
-        if (!$this->tasks->contains($tasks)) {
-            $this->tasks[] = $tasks;
-            $tasks->setProjet($this);
+          
+    public function addTask(Task $task): self
+         {
+               if (!$this->tasks->contains($task)) {
+                   $this->tasks[] = $task;
+                   $task->addUser($this);
+       }
+             
+           return $this;
+       }
+               
+     public function removeTask(Task $task): self
+     {
+        if ($this->tasks->contains($task)) {
+           $this->tasks->removeElement($task);
+           $task->removeUser($this);
         }
-
-        return $this;
-    }
-
-    public function removeTask(Task $tasks): self
-    {
-        if ($this->tasks->contains($tasks)) {
-            $this->tasks->removeElement($tasks);
-            // set the owning side to null (unless already changed)
-            if ($tasks->getProjet() === $this) {
-                $tasks->setProjet(null);
-            }
-        }
-
-        return $this;
-    }
+        
+            return $this;
+     }
 
           public function __toString(){
                

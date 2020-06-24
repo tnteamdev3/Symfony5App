@@ -27,11 +27,27 @@ class Task
      */
     private $description;
 
+   
+    ////  @ORM\JoinColumn(nullable=false)
+     
+  
+
     /**
-     * @ORM\ManyToOne(targetEntity=App\digitcorp\crm\module\project\Entity\Project::class, inversedBy="tasks")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\digitcorp\crm\module\project\Entity\Project", inversedBy="tasks")
      */
     private $projet;
+
+    public function getProjet(): ?Project
+    {
+        return $this->projet;
+    }
+
+    public function setProjet(?Project $projet): self
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
 
 /**
  * @var ENUM
@@ -70,17 +86,7 @@ class Task
         return $this;
     }
 
-    public function getProjet(): ?Project
-    {
-        return $this->projet;
-    }
-
-    public function setProjet(?Project $projet): self
-    {
-        $this->projet = $projet;
-
-        return $this;
-    }
+   
       public function __toString(){
                
         return (string)$this->numero_task;
