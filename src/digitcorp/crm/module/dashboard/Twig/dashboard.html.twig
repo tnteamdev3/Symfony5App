@@ -59,7 +59,7 @@
                   New Project
               </a>
         </li>{% endif %}
-                    {% if is_granted('ROLE_USER') %}  
+    {#                {% if is_granted('ROLE_USER') %}  
       <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Tasks</p>
      <li class="nav-item">
             <a href="{{ path('task_index') }}"  class="nav-link text-light font-italic bg-dark">
@@ -74,7 +74,7 @@
               </a>
         </li>
           
-             {% endif %}
+             {% endif %}  #}
 
       <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Profile</p>
 
@@ -129,12 +129,12 @@
          
             </div>
          </div>
-            <div class="quick-stats-invoices col-xs-12 col-md-6 col-sm-6 col-lg-3">
+           {# <div class="quick-stats-invoices col-xs-12 col-md-6 col-sm-6 col-lg-3">
             <div class="top_stats_wrapper font-weight-bold text-primary">
              <p class="text-uppercase"><i class="hidden-sm fa fa-cubes"></i>Tasks<span class="pull-right">{{ tasksNumber }} </span>
                </p>
           </div>
-         </div>
+         </div> #}
          </div>
   </div>
       {% endif %}      

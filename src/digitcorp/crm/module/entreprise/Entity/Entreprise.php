@@ -27,7 +27,7 @@ class Entreprise
     /**
      * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\user\Entity\User::class, inversedBy="entreprises")
      */
-    private $user;
+    private $users;
 
     
     public function __construct()
@@ -55,15 +55,15 @@ class Entreprise
     /**
      * @return Collection|User[]
      */
-    public function getUser(): Collection
+    public function getUsers(): Collection
     {
-        return $this->user;
+        return $this->users;
     }
 
-    public function addUser(User $user): self
+    public function addUsers(User $user): self
     {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
+        if (!$this->users->contains($users)) {
+            $this->users[] = $users;
         }
 
         return $this;
@@ -71,8 +71,8 @@ class Entreprise
 
     public function removeUser(User $user): self
     {
-        if ($this->user->contains($user)) {
-            $this->user->removeElement($user);
+        if ($this->users->contains($users)) {
+            $this->users->removeElement($users);
         }
 
         return $this;
