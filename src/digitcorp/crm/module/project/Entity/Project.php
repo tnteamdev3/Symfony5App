@@ -66,7 +66,7 @@ class Project
         return $this->user;
     }
 
-    public function addUser(?User $user): self
+    public function addUser(App\digitcorp\crm\module\user\Entity\User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
