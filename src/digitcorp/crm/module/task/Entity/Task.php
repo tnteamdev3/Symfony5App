@@ -65,7 +65,12 @@ class Task
         return $this;
     }
 
-
+  
+      public function __toString(){
+               
+        return (string)$this->numero_task;
+                                               
+      }
       
     public function getStatus(): ?string
     {

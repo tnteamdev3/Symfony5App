@@ -165,31 +165,5 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                
                                                    }
       
-                                           /**
-                                            * @return Collection|Project[]
-                                            */
-                                           public function getProjects(): Collection
-                                           {
-                                               return $this->projects;
-                                           }
-   
-                                           public function addProject(Project $project): self
-                                           {
-                                               if (!$this->projects->contains($project)) {
-                                                   $this->projects[] = $project;
-                                                   $project->addUser($this);
-                                               }
-   
-                                               return $this;
-                                           }
-
-                                           public function removeProject(Project $project): self
-                                           {
-                                               if ($this->projects->contains($project)) {
-                                                   $this->projects->removeElement($project);
-                                                   $project->removeUser($this);
-                                               }
-
-                                               return $this;
-                                           }
+                                          
                                                }
