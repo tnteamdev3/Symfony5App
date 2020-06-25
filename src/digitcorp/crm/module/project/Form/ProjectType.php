@@ -13,7 +13,7 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name_project')
-          
+            ->add('user')
         ;
     }
 

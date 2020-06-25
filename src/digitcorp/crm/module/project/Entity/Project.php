@@ -3,6 +3,8 @@
 namespace App\digitcorp\crm\module\project\Entity;
 
 use App\digitcorp\crm\module\project\Repository\ProjectRepository;
+use App\digitcorp\crm\module\task\Entity\Task;
+use App\digitcorp\crm\module\user\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,7 +26,10 @@ class Project
      */
     private $name_project;
 
-
+   /**
+     * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\user\Entity\User::class, inversedBy="projects")
+     */
+    public $user;
 
     /**
      * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="project")
@@ -34,6 +39,7 @@ class Project
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
+        $this->user = new ArrayCollection();
 
     }
 
@@ -54,11 +60,37 @@ class Project
         return $this;
     }
 
- 
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): ?User
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+        }
+         
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->user->contains($user)) {
+            $this->user->removeElement($user);
+        }
+
+        return $this;
+    }
+
+
     /**
      * @return Collection|Task[]
     */
-    public function getTasks(): Collection
+    public function getTasks(): ?Task
     {
            return $this->tasks;
     }
@@ -88,4 +120,12 @@ class Project
             return $this->name_project;
                                                
               }
+
+          /**
+           * @return Collection|User[]
+           */
+          public function getUser(): Collection
+          {
+              return $this->user;
+          }
 }

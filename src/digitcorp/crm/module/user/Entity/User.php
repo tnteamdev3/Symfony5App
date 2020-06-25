@@ -43,11 +43,15 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                             */
                                            private $entreprises;
             
-                                           
+                                           /**
+                                            * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\project\Entity\Project::class, mappedBy="users")
+                                            */
+                                           private $projects;
                            
                                            public function __construct()
                                            {
                                                $this->entreprises = new ArrayCollection();
+                                               $this->projects = new ArrayCollection();
                                            }
                                        
                                            public function getId(): ?int
@@ -161,5 +165,31 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                
                                                    }
       
-                                      
+                                           /**
+                                            * @return Collection|Project[]
+                                            */
+                                           public function getProjects(): Collection
+                                           {
+                                               return $this->projects;
+                                           }
+   
+                                           public function addProject(Project $project): self
+                                           {
+                                               if (!$this->projects->contains($project)) {
+                                                   $this->projects[] = $project;
+                                                   $project->addUser($this);
+                                               }
+   
+                                               return $this;
+                                           }
+
+                                           public function removeProject(Project $project): self
+                                           {
+                                               if ($this->projects->contains($project)) {
+                                                   $this->projects->removeElement($project);
+                                                   $project->removeUser($this);
+                                               }
+
+                                               return $this;
+                                           }
                                                }
