@@ -24,10 +24,7 @@ class Project
      */
     private $name_project;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\user\Entity\User::class, inversedBy="entreprises")
-     */
-    private $user;
+
 
     /**
      * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="project")
@@ -36,7 +33,6 @@ class Project
 
     public function __construct()
     {
-        $this->user = new ArrayCollection();
         $this->tasks = new ArrayCollection();
 
     }
@@ -58,32 +54,7 @@ class Project
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->user;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->user->contains($user)) {
-            $this->user->removeElement($user);
-        }
-
-        return $this;
-    }
-
+ 
     /**
      * @return Collection|Task[]
     */
