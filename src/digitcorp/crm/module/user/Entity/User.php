@@ -140,7 +140,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this->entreprises;
                                            }
                
-                                           public function addEntreprise(Entreprise $entreprise): self
+                                           public function addEntreprise(string $entreprise): self
                                            {
                                                if (!$this->entreprises->contains($entreprise)) {
                                                    $this->entreprises[] = $entreprise;
