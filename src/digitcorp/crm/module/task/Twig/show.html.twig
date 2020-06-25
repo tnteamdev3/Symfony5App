@@ -59,12 +59,16 @@
                 <td>{{ task.id }}</td>
             </tr>
             <tr>
-                <th>Name_task</th>
-                <td>{{ task.nametask }}</td>
+                <th>Numero_task</th>
+                <td>{{ task.numero_task }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ task.description }}</td>
             </tr>
              <tr>
-                <th>user</th>
-            <td>{% for u in task.user %}
+                <th>Project</th>
+            <td>{% for u in task.status %}
             {{ u }}<br>
               {% endfor %}</td>
 

@@ -17,7 +17,7 @@ class TaskType extends AbstractType
         $builder
             ->add('numero_task')
             ->add('description')
-            ->add('projet')
+            ->add('project')
              ->add('status', ChoiceType::class, [
          'choices'  => [
         'Not Started Yet' =>  'Not Started Yet',

@@ -30,7 +30,7 @@ class Project
     public $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="projet")
+     * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="project")
      */
     private $tasks;
 
@@ -40,7 +40,6 @@ class Project
         $this->user = new ArrayCollection();
 
     }
-
 
     public function getId(): ?int
     {
@@ -86,9 +85,9 @@ class Project
     }
 
 
-/**
+    /**
      * @return Collection|Task[]
- */
+    */
     public function getTasks(): Collection
     {
            return $this->tasks;
@@ -100,7 +99,7 @@ class Project
                    $this->tasks[] = $task;
                    $task->addUser($this);
        }
-             
+
            return $this;
        }
                

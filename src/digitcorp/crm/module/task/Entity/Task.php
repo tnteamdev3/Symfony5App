@@ -27,34 +27,18 @@ class Task
      */
     private $description;
 
-   
-    ////  @ORM\JoinColumn(nullable=false)
-     
-  
+    /**
+     * @ORM\ManyToOne(targetEntity=App\digitcorp\crm\module\project\Entity\Project::class, inversedBy="tasks")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $project;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\digitcorp\crm\module\project\Entity\Project", inversedBy="tasks")
+     * @var ENUM
+     *
+     * @ORM\Column(name="status", type="string", columnDefinition="ENUM('Not Started Yet', 'In Process', 'Done')")
      */
-    private $projet;
-
-    public function getProjet(): ?Project
-    {
-        return $this->projet;
-    }
-
-    public function setProjet(?Project $projet): self
-    {
-        $this->projet = $projet;
-
-        return $this;
-    }
-
-/**
- * @var ENUM
- *
- * @ORM\Column(name="status", type="string", columnDefinition="ENUM('Not Started Yet', 'In Process', 'Done')")
- */
-  private $status;
+    private $status;
 
     
     public function getId(): ?int
@@ -86,7 +70,17 @@ class Task
         return $this;
     }
 
-   
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
+
+        return $this;
+    }
       public function __toString(){
                
         return (string)$this->numero_task;

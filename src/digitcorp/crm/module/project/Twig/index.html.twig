@@ -44,6 +44,7 @@
                 <th>Id</th>
                 <th>Name_project</th>
                 <th>Actions</th>
+                <th>Tasks</th>         
                 <th>Users</th>
 
             </tr>
@@ -57,9 +58,14 @@
                     <a href="{{ path('project_show', {'id': project.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i>show</a>
                     <a href="{{ path('project_edit', {'id': project.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>edit</a>
                 </td>
-            <td>{% for u in project.user %}
-            {{ u }}<br>
-              {% endfor %}</td>
+                <td>{% for u in project.tasks %}
+                       {{ u }}<br>
+                    {% endfor %}
+                </td>
+                <td>{% for u in project.user %}
+                      {{ u }}<br>
+                    {% endfor %}
+                </td>
             </tr>
         {% else %}
             <tr>
