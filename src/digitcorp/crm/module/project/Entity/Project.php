@@ -27,12 +27,15 @@ class Project
    /**
      * @ORM\ManyToMany(targetEntity=App\digitcorp\crm\module\user\Entity\User::class, inversedBy="projects")
      */
-    public $user;
+    private $user;
 
     /**
      * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="project")
      */
     private $tasks;
+
+
+
 
     public function __construct()
     {
@@ -66,7 +69,7 @@ class Project
         return $this->user;
     }
 
-    public function addUser(string $user): self
+    public function addUser(User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
@@ -75,7 +78,7 @@ class Project
         return $this;
     }
 
-    public function removeUser(string $user): self
+    public function removeUser(User $user): self
     {
         if ($this->user->contains($user)) {
             $this->user->removeElement($user);
