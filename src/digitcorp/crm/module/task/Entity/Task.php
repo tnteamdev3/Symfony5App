@@ -28,7 +28,7 @@ class Task
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=App\digitcorp\crm\module\project\Entity\Project::class, inversedBy="tasks")
+     * @ORM\ManyToOne(targetEntity="App\digitcorp\crm\module\project\Entity\Project", inversedBy="tasks")
      * @ORM\JoinColumn(nullable=false)
      */
     private $project;
@@ -70,12 +70,12 @@ class Task
         return $this;
     }
 
-    public function getProject()
+    public function getProject(): ?Project
     {
         return $this->project;
     }
 
-    public function setProject(?string $project): self
+    public function setProject(?Project $project): self
     {
         $this->project = $project;
 

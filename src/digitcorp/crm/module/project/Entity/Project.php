@@ -29,11 +29,11 @@ class Project
      */
     private $user;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="project")
+        /**
+     * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="project", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $tasks;
-
 
 
 
@@ -88,33 +88,37 @@ class Project
     }
 
 
+
     /**
      * @return Collection|Task[]
-        */
+     */
     public function getTasks(): Collection
     {
-           return $this->tasks;
+        return $this->tasks;
     }
-          
-    public function addTask(Task $task): self
-         {
-               if (!$this->tasks->contains($task)) {
-                   $this->tasks[] = $task;
-                   $task->addUser($this);
-       }
 
-           return $this;
-       }
-               
-     public function removeTask(Task $task): self
-     {
-        if ($this->tasks->contains($task)) {
-           $this->tasks->removeElement($task);
-           $task->removeUser($this);
+    public function addTask(Task $tasks): self
+    {
+        if (!$this->tasks->contains($tasks)) {
+            $this->tasks[] = $tasks;
+            $tasks->setPatient($this);
         }
-        
-            return $this;
-     }
+
+        return $this;
+    }
+
+    public function removeTask(Task $tasks): self
+    {
+        if ($this->tasks->contains($tasks)) {
+            $this->tasks->removeElement($tasks);
+            // set the owning side to null (unless already changed)
+            if ($tasks->getPatient() === $this) {
+                $tasks->setPatient(null);
+            }
+        }
+
+        return $this;
+    }
 
           public function __toString(){
                
