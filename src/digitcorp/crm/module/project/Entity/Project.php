@@ -58,10 +58,8 @@ class Project
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
+    
+    public function getUser(): ?User
     {
         return $this->user;
     }
