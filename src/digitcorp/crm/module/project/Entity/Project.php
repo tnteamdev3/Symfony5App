@@ -75,7 +75,7 @@ class Project
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function removeUser(string $user): self
     {
         if ($this->user->contains($user)) {
             $this->user->removeElement($user);
