@@ -30,13 +30,10 @@ class Project
     private $user;
 
         /**
-     * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="project", orphanRemoval=true)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\OneToMany(targetEntity="App\digitcorp\crm\module\task\Entity\Task", mappedBy="project")
      */
     private $tasks;
-
-
-
+    
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
