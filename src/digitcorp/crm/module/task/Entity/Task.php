@@ -70,14 +70,14 @@ class Task
         return $this;
     }
 
-    public function getProjet(): ?Project
+    public function getProject(): ?Project
     {
-        return $this->projet;
+        return $this->project;
     }
 
-    public function setProjet(?Project $projet): self
+    public function setProject(?Project $project): self
     {
-        $this->projet = $projet;
+        $this->project = $project;
 
         return $this;
     }
