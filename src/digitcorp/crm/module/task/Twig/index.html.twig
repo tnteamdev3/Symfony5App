@@ -45,7 +45,6 @@
                 <th>Numero_task</th>
                 <th>Description</th>
                 <th>Actions</th>
-                <th>Project</th>
                 <th>Status</th>
                 
             </tr>
@@ -60,10 +59,7 @@
                     <a href="{{ path('task_show', {'id': task.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i>show</a>
                     <a href="{{ path('task_edit', {'id': task.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>edit</a>
                 </td>
-                <td>{% for u in task.project %}
-                       {{ u }}<br>
-                    {% endfor %}
-                </td>
+
                  <td>{% for u in task.status %}
                        {{ u }}<br>
                     {% endfor %}
