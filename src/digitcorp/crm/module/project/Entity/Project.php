@@ -61,12 +61,12 @@ class Project
     /**
      * @return Collection|User[]
      */
-    public function getUser(): Collection
+    public function getUsers(): Collection
     {
         return $this->user;
     }
 
-    public function addUsers(User $user): self
+    public function addUser(User $user): self
     {
         if (!$this->user->contains($user)) {
             $this->user[] = $user;
@@ -83,6 +83,7 @@ class Project
 
         return $this;
     }
+
     /**
      * @return Collection|Task[]
     */
