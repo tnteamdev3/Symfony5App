@@ -75,7 +75,7 @@ class Task
         return $this->project;
     }
 
-    public function setProject(?Project $project)
+    public function setProject(?Project $project): ?Project
     {
         $this->project = $project;
 
