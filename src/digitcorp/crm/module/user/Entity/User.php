@@ -140,7 +140,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this->entreprises;
                                            }
                
-                                           public function addEntreprise(App\src\digitcorp\crm\module\entreprise\Entity\Entreprise $entreprise): self
+                                           public function addEntreprise(?Entreprise $entreprise): self
                                            {
                                                if (!$this->entreprises->contains($entreprise)) {
                                                    $this->entreprises[] = $entreprise;
