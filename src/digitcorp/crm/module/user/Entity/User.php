@@ -135,7 +135,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                            /**
                                             * @return Collection|Entreprise[]
                                             */
-                                           public function getEntreprises(): ?Entreprise
+                                           public function getEntreprises()
                                            {
                                                return $this->entreprises;
                                            }
