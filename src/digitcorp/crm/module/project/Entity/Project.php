@@ -29,11 +29,9 @@ class Project
      */
     private $user;
 
-
-
+  
     public function __construct()
     {
-        $this->tasks = new ArrayCollection();
         $this->user = new ArrayCollection();
 
     }
@@ -80,8 +78,6 @@ class Project
 
         return $this;
     }
-
-
 
 
           public function __toString(){

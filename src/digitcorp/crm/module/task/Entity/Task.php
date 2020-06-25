@@ -27,6 +27,7 @@ class Task
      */
     private $description;
 
+  
 
     /**
      * @var ENUM
@@ -65,7 +66,6 @@ class Task
         return $this;
     }
 
-  
       public function __toString(){
                
         return (string)$this->numero_task;
