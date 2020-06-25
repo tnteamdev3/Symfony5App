@@ -150,7 +150,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this;
                                            }
                
-                                           public function removeEntreprise(Entreprise $entreprise): self
+                                           public function removeEntreprise(string $entreprise): self
                                            {
                                                if ($this->entreprises->contains($entreprise)) {
                                                    $this->entreprises->removeElement($entreprise);
