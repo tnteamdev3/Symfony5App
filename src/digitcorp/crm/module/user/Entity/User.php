@@ -140,7 +140,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this->entreprises;
                                            }
                
-                                           public function addEntreprise(string $entreprise): self
+                                           public function addEntreprise(Entreprise $entreprise): self
                                            {
                                                if (!$this->entreprises->contains($entreprise)) {
                                                    $this->entreprises[] = $entreprise;
@@ -150,7 +150,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this;
                                            }
                
-                                           public function removeEntreprise(string $entreprise): self
+                                           public function removeEntreprise(Entreprise $entreprise): self
                                            {
                                                if ($this->entreprises->contains($entreprise)) {
                                                    $this->entreprises->removeElement($entreprise);
@@ -173,7 +173,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this->projects;
                                            }
    
-                                           public function addProject(string $project): self
+                                           public function addProject(Project $project): self
                                            {
                                                if (!$this->projects->contains($project)) {
                                                    $this->projects[] = $project;
@@ -183,7 +183,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this;
                                            }
 
-                                           public function removeProject(string $project): self
+                                           public function removeProject(Project $project): self
                                            {
                                                if ($this->projects->contains($project)) {
                                                    $this->projects->removeElement($project);

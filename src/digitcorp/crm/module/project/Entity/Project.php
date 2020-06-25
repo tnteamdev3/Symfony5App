@@ -3,8 +3,6 @@
 namespace App\digitcorp\crm\module\project\Entity;
 
 use App\digitcorp\crm\module\project\Repository\ProjectRepository;
-use App\digitcorp\crm\module\task\Entity\Task;
-use App\digitcorp\crm\module\user\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -63,7 +61,7 @@ class Project
     /**
      * @return Collection|User[]
      */
-    public function getUsers(): ?User
+    public function getUser(): Collection
     {
         return $this->user;
     }
@@ -89,7 +87,7 @@ class Project
 
     /**
      * @return Collection|Task[]
-    */
+        */
     public function getTasks(): Collection
     {
            return $this->tasks;
@@ -120,12 +118,4 @@ class Project
             return $this->name_project;
                                                
               }
-
-          /**
-           * @return Collection|User[]
-           */
-          public function getUser(): Collection
-          {
-              return $this->user;
-          }
 }
