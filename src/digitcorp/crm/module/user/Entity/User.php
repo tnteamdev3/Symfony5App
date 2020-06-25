@@ -173,7 +173,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this->projects;
                                            }
    
-                                           public function addProject(Project $project): self
+                                           public function addProject(string $project): self
                                            {
                                                if (!$this->projects->contains($project)) {
                                                    $this->projects[] = $project;
@@ -183,7 +183,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
                                                return $this;
                                            }
 
-                                           public function removeProject(Project $project): self
+                                           public function removeProject(string $project): self
                                            {
                                                if ($this->projects->contains($project)) {
                                                    $this->projects->removeElement($project);
