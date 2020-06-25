@@ -70,7 +70,7 @@ class Task
         return $this;
     }
 
-    public function getProject(): ?Project
+    public function getProject(): self
     {
         return $this->project;
     }
