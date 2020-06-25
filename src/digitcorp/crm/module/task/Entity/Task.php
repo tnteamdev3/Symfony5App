@@ -29,7 +29,7 @@ class Task
 
     /**
      * @ORM\ManyToOne(targetEntity="App\digitcorp\crm\module\project\Entity\Project", inversedBy="tasks")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $project;
 
