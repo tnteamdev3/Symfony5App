@@ -1,6 +1,6 @@
 <?php
 
-namespace App\digitcorp\crm\module\DataFixtures;
+namespace App\digitcorp\crm\module\user\DataFixtures;
 use App\digitcorp\crm\module\user\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
