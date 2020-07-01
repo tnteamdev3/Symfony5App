@@ -1,6 +1,6 @@
 <?php
 
-namespace App\digitcorp\crm\module\security\Security;
+namespace App\digitcorp\crm\module\user\security;
 
 use App\digitcorp\crm\module\user\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;

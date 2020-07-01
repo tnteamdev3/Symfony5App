@@ -4,7 +4,7 @@ namespace App\digitcorp\crm\module\user\Controller;
 
 use App\digitcorp\crm\module\user\Entity\User;
 use App\digitcorp\crm\module\user\Form\UserType;
-use App\digitcorp\crm\module\user\Repository\UserRepository;
+use App\digitcorp\crm\module\user\Doctrine\ORM\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

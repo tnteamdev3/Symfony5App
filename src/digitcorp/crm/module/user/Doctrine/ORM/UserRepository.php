@@ -1,6 +1,6 @@
 <?php
 
-namespace App\digitcorp\crm\module\user\Repository;
+namespace App\digitcorp\crm\module\user\Doctrine\ORM;
 
 use App\digitcorp\crm\module\user\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

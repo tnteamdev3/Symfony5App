@@ -1,8 +1,8 @@
 <?php
 
-namespace App\MessageHandler;
+namespace App\digitcorp\crm\module\user\MessageHandler;
 
-use App\Message\SendEmailMessage;
+use App\digitcorp\crm\module\user\Message\SendEmailMessage;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class SendEmailMessageHandler implements MessageHandlerInterface

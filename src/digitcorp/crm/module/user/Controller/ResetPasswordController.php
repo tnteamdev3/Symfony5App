@@ -1,11 +1,11 @@
 <?php
 
-namespace App\digitcorp\crm\module\security\Controller;
+namespace App\digitcorp\crm\module\user\Controller;
 
 use App\digitcorp\crm\module\user\Entity\User;
-use App\digitcorp\crm\module\security\Form\ChangePasswordFormType;
+use App\digitcorp\crm\module\user\Form\ChangePasswordFormType;
 use Symfony\Component\Mailer\MailerInterface;
-use App\digitcorp\crm\module\security\Form\ResetPasswordRequestFormType;
+use App\digitcorp\crm\module\user\Form\ResetPasswordRequestFormType;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -50,7 +50,7 @@ class ResetPasswordController extends AbstractController
             );
         }
 
-        return $this->render('security/Twig/reset_password/request.html.twig', [
+        return $this->render('user/Twig/reset_password/request.html.twig', [
             'requestForm' => $form->createView(),
         ]);
     }
@@ -67,7 +67,7 @@ class ResetPasswordController extends AbstractController
             return $this->redirectToRoute('app_forgot_password_request');
         }
 
-        return $this->render('security/Twig/reset_password/check_email.html.twig', [
+        return $this->render('user/Twig/reset_password/check_email.html.twig', [
             'tokenLifetime' => $this->resetPasswordHelper->getTokenLifetime(),
         ]);
     }
@@ -126,7 +126,7 @@ class ResetPasswordController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        return $this->render('security/Twig/reset_password/reset.html.twig', [
+        return $this->render('user/Twig/reset_password/reset.html.twig', [
             'resetForm' => $form->createView(),
         ]);
     }
@@ -160,7 +160,7 @@ class ResetPasswordController extends AbstractController
             ->from(new Address('symfony5App@gmail.com', 'mail Confirmation'))
             ->to($user->getEmail())
             ->subject('Your password reset request')
-            ->htmlTemplate('security/Twig/reset_password/email.html.twig')
+            ->htmlTemplate('user/Twig/reset_password/email.html.twig')
             ->context([
                 'resetToken' => $resetToken,
                 'tokenLifetime' => $this->resetPasswordHelper->getTokenLifetime(),

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\digitcorp\crm\module\security\Form;
+namespace App\digitcorp\crm\module\user\Form;
 
 use App\digitcorp\crm\module\user\Entity\User;
 use Symfony\Component\Form\AbstractType;

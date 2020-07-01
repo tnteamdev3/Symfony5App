@@ -2,7 +2,7 @@
 
 namespace App\digitcorp\crm\module\user\Entity;
 
-use App\digitcorp\crm\module\user\Repository\UserRepository;
+use App\digitcorp\crm\module\user\Doctrine\ORM\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;

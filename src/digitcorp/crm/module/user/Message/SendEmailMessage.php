@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Message;
+namespace App\digitcorp\crm\module\user\Message;
 
 final class SendEmailMessage
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\digitcorp\crm\module\security\Entity;
+namespace App\digitcorp\crm\module\user\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestTrait;
 
 /**
- * @ORM\Entity(repositoryClass="App\digitcorp\crm\module\security\Repository\ResetPasswordRequestRepository")
+ * @ORM\Entity(repositoryClass="App\digitcorp\crm\module\user\Doctrine\ORM\ResetPasswordRequestRepository")
  */
 class ResetPasswordRequest implements ResetPasswordRequestInterface
 {

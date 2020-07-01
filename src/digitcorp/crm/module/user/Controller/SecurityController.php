@@ -1,6 +1,6 @@
 <?php
 
-namespace App\digitcorp\crm\module\security\Controller;
+namespace App\digitcorp\crm\module\user\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +23,7 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/Twig/security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('user/Twig/security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
         
     }
 

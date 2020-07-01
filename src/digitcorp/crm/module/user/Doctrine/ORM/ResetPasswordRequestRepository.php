@@ -1,8 +1,8 @@
 <?php
 
-namespace App\digitcorp\crm\module\security\Repository;
+namespace App\digitcorp\crm\module\user\Doctrine\ORM;
 
-use App\digitcorp\crm\module\security\Entity\ResetPasswordRequest;
+use App\digitcorp\crm\module\user\Entity\ResetPasswordRequest;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\digitcorp\crm\module\security\Controller;
+namespace App\digitcorp\crm\module\user\Controller;
 
 use App\digitcorp\crm\module\user\Entity\User;
-use App\digitcorp\crm\module\security\Form\RegistrationFormType;
-use App\digitcorp\crm\module\security\Security\UserAuthentificatorAuthenticator;
+use App\digitcorp\crm\module\user\Form\RegistrationFormType;
+use App\digitcorp\crm\module\user\security\UserAuthentificatorAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,7 +46,7 @@ class RegistrationController extends AbstractController
             );
         }
 
-        return $this->render('security/Twig/registration/register.html.twig', [
+        return $this->render('user/Twig/registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
